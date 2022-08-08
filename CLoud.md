@@ -1,4 +1,5 @@
 #Cloud란 무엇인가 ?
+
   ①Compute요소 (H/W(CPU , RAM, Storage) + S/W(OS설치, 네트워크설치) + Storage)
   ②Network요소 
   ③Storage 요소를 
