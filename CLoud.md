@@ -1,4 +1,4 @@
-# Cloud란 무엇인가 ?
+#Cloud란 무엇인가 ?
   ①Compute요소 (H/W(CPU , RAM, Storage) + S/W(OS설치, 네트워크설치) + Storage)
   ②Network요소 
   ③Storage 요소를 
@@ -13,7 +13,7 @@
                       네트워크가 불안정한 상황에서도 다중성을 확보하며 지속적인 커뮤니케이션이 가능하다.
 <hr/>
 
-# IaaS , PaaS , SaaS
+#IaaS , PaaS , SaaS
   * IaaS : 고객에게 서버, 네트워크, OS, 스토리지를 가상화하여 물리적 자원을 제공&관리한다
           클라우드 인프라스트럭처 서비스는 확장성이 높고 자동화된 컴퓨팅 리소스를 가상화하여 제공하는 것입니다.( 빠른 변화를 원한다면)
   * PaaS : OS, 미들웨어, 런타임과 같은 소프트웨어 작성을 위한 플랫폼을 가상화하여 제공하고 관리
@@ -25,7 +25,7 @@
           
 <hr/>
 
-# Cloud Native
+#Cloud Native
   * Public , Private , Hybrid Cloud 환경에서 '확장성'있는 애플리케이션을 만들고 운영
   * Container , Service Mesh , Micro Service , Infrastructure , 선언적 API가 전형적인 접근 방식에 해당
   * 회복성있고, 관리 편의성 제공하며 , 가시성을 갖는 느슨하게 결합된 시스템 사용
