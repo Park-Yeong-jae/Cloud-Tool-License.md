@@ -1,4 +1,4 @@
-# meta http-equiv="Content-Type" content="text/html; charset=utf-8"
+### meta http-equiv="Content-Type" content="text/html; charset=utf-8"
   * EUC-KR / ISO-2022-KR : 한국어 문자 인코딩
   * EUC-JP / ISO-2022-JP : 일본어 문자 인코딩
   * GB2312 : 중국어 문자 인코딩
@@ -14,8 +14,8 @@
   * ISO-8859-10 : 에스키모, 북유럽 언어
   * UTF-8, UTF-16, UTF-32  : 모든 언어의 문자를 지원하는 인코딩
 
-# meta http-equiv="Pragma" content="no-cache"
-# meta http-equiv="Cache-Control" content="no-cache"
+### meta http-equiv="Pragma" content="no-cache"
+### meta http-equiv="Cache-Control" content="no-cache"
   * 페이지를 cache에서 가져오지 않게 하며 항상 서버에 접속해서 페이지를 가져옵니다.
     그러므로 방문자의 브라우저가 항상 cache를 읽도록 해 놓아도 이것을 무시하고 페이지를 갱신합니다.
     자주 고치는 페이지에서는 이것을 사용하는 것이 항상 방문자에게 바뀐 내용을 보여 줄 수가 있습니다. 
