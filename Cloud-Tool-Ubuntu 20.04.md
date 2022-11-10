@@ -51,6 +51,10 @@
 
 ## 13. Installing System 마무리 후 Reboot
 
+## 14. 설치 후 ip 확인
+      > ifconfig  안되면
+      > sudo apt install net-tools 설치 후 다시 ifconfig
+
 <hr>   
 <hr>   
 
