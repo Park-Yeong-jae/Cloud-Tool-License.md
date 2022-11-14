@@ -26,10 +26,9 @@
         -	Azure Fundamentals 시험은 Azure 가격 책정 및 지원 뿐만 아니라 클라우드 개념, Azure 서비스, Azure 워크로드, Azure에서의 보안 및 개인정보에 대한 지식이 있음을 증명할 수 있는 기회입니다. 응시자는 네트워킹, 스토리지, 컴퓨팅, 애플리케이션 지원 및 애플리케이션 개발을 포함한 일반적인 기술 개념을 숙지해야 합니다.     
         
         - 시험영역   
-          클라우드 개념 설명 :                          15~20% 
-          핵심 Azure 서비스 :                           30~35%  
-          보안, 개인정보 보호, 규정 준수 및 신뢰설명:   25~30% 
-          Azure 가격 책정 서비스 수준 및 신뢰설명:      20~25% 
+          클라우드 개념 설명	             25 ~ 30%
+          Azure 아키텍처 및 서비스 설명	   35 ~ 40%
+          Azure 관리 및 거버넌스 설명	    30 ~35%
           *** 수시로 변경이 되니 확인필요 https://learn.microsoft.com/ko-kr/training/paths/az-900-describe-cloud-concepts/ 
    
   ㄹ) AZ-104 : Azure administrator Associate (Azure 관리자 역할에 이상적인 자격증)   
