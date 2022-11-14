@@ -29,6 +29,7 @@
           클라우드 개념 설명:              25~30%   
           Azure 아키텍처 및 서비스 설명:   35~40%   
           Azure 관리 및 거버넌스 설명:     30~45%   
+          *** 수시로 변경이 되니 확인필요 https://learn.microsoft.com/ko-kr/training/paths/az-900-describe-cloud-concepts/ 
    
   ㄹ) AZ-104 : Azure administrator Associate (Azure 관리자 역할에 이상적인 자격증)   
         ![image](https://user-images.githubusercontent.com/96723249/200975730-8bbe5095-e190-4a57-ade1-33284ef4397f.png)   
@@ -43,6 +44,7 @@
           Azure 컴퓨팅 리소스 배포 및 관리 : 	20~25%   
           가상 네트워크 구성 및 관리 :		20~25%   
           Azure 리소스 모니터링 및 유지관리 : 	10~15%   
+          *** 수시로 변경이 되니 확인필요 https://learn.microsoft.com/ko-kr/certifications/exams/az-104
 
   ㅁ) AZ-204 : Azure Developer Associate    
     (클라우드 솔루션 설계, 구축, 배포 및 유지 관리와 같은 다양한 개발 단계에 관련된 클라우드 개발자에게 이상적인 자격증)   
@@ -58,6 +60,7 @@
           Azure 보안 구현 : 				20~25%
           Azure 솔루션 모니터링, 문제 해결 및 최적화 :	15~20%
           Azure 서비스 및 타사 서비스 연결 및 사용 : 	15~20%
+          *** 수시로 변경이 되니 확인필요 https://learn.microsoft.com/ko-kr/certifications/exams/az-204
           
   ㅂ) AZ-400 : Azure DevOps Engineer Expert   
     ![image](https://user-images.githubusercontent.com/96723249/200977485-bc80a89b-561c-4f2c-a880-38ebfda21882.png)   
