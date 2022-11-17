@@ -7,11 +7,11 @@
 
 ## 3. Docker GPG Key를 추가
  * curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add   
-  (※ Docker Repository를 접근하기 위한 인증key를 추가하는 작업입니다.)
+  *(※ Docker Repository를 접근하기 위한 인증key를 추가하는 작업입니다.)
   
 ## 4. stable repository를 추가
  * add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"   
-  (Docker Repository의 정보를 갖고 오는 작업입니다.)
+  *(Docker Repository의 정보를 갖고 오는 작업입니다.)
 
 ## 5. ubuntu update
  * apt-get update
