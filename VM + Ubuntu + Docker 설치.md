@@ -2,7 +2,7 @@
 ## 1. Docker 오래된 버전 삭제하기 (첫 설치라면 skip)
   * sudo apt-get remove docker docker-engine docker.io containerd runc
   
-## 2. 필요한 라이브러리 설치
+## 2. 필요한 라이브러리(docker) 설치
  * apt-get install apt-transport-https ca-certificates curl software-properties-common
 
 ## 3. Docker GPG Key를 추가
