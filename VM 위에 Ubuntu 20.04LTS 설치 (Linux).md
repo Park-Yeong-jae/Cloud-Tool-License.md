@@ -84,5 +84,7 @@
     > sudo apt-get install (recommended 된 드라이버확인 후 (nvidia-deiver-470) 설치)
     > sudo reboot 실행
     > 후에 잘 안되면 sudo apt-get update나 upgrade
+    
+    *** Grub : 부트로더로 PC켰을 때 가장 먼저 실행되고 리눅스 OS의 커널을 로드하며 파라미터를 커널에 넘겨주는 등 부팅 전반에 걸친 작업을 진행함.
     참고 : https://velog.io/@se0yeon00/Ubuntu-20.04-Windows-10-%EB%93%80%EC%96%BC-%EB%B6%80%ED%8C%85-%EC%84%A4%EC%B9%98-%EB%B0%8F-nvidia-driver-%EC%84%A4%EC%B9%98
-
+    
