@@ -79,6 +79,8 @@
       * kubeadm join [마스터 IP]:~ --token 로 시작하는 라인 전부
       
   ## 2. kubectl 명령어 수행을 위한 명령어 (마스터)
+    * (재설치 시 선행작업 : unset KUBECONFIG)
+    * (재설치 시 선행작업 : export KUBECONFIG=/etc/kubernetes/admin.conf)
     * mkdir -p $HOME/.kube
     * sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     * sudo chown $(id -u):$(id -g) $HOME/.kube/config
