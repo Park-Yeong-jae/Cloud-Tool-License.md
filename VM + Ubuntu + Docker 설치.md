@@ -6,25 +6,25 @@
  * apt-get install apt-transport-https ca-certificates curl software-properties-common
 
 ## 3. Docker GPG Key를 추가 (공식 도커 저장소용)
+ * ※ Docker Repository를 접근하기 위한 인증key를 추가하는 작업입니다.
  * curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add   
-  *(※ Docker Repository를 접근하기 위한 인증key를 추가하는 작업입니다.)
   
 ## 4. apt소스에 도커저장소(stable repository)를 추가
- * add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"   
-  *(Docker Repository의 정보를 갖고 오는 작업입니다.)
-
+ * Docker Repository의 정보를 갖고 오는 작업입니다.
+ * add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  
 ## 5. 패키지 데이터베이스 업데이트
  * apt-get update
 
 ## 6. 설치가 가능한 docker-ce 버전 확인
  * apt-cache madison docker-ce   
-  (docker-ce: docker Community Edition)
   
 ## 7. 도커 저장소 사용 및 Docker-ce 설치
- * sudo apt-get install docker-ce docker-ce-cli containerd.io
+ * sudo apt-get install docker-ce
   
 ## 8. 설치 확인
  * docker --version
+ * docker info
 
 ## 9. 설치 확인 후 작업 및 실행 상태 확인
  * systemctl stop docker
@@ -49,7 +49,7 @@
  * sudo rm /etc/apparmor.d/docker 
  * sudo groupdel docker 
  * sudo rm -rf /var/run/docker.sock
-
+ 
 <hr>   
 <hr>   
 
@@ -77,7 +77,7 @@
    * cd ~
    * 순서로 명령어를 입력하여 root 계정으로 접근
 
-<hr>   
+<hr>  
 
   ## 번외 : Kubernetes 와 Dcoker compose의 차이   
    ①. 쿠버네티스   
@@ -85,7 +85,3 @@
 
    ②. Docker compose   
    마찬가지로 yaml 파일에 정의된 내용을 바탕이지만, 클러스터 내에서가 아닌 Host 컴퓨터 내에 컨테이너를 만든다.
-   
-   ## 번외 : CLI Tool
-   ① apt : 패키지를 install, upgrade , clean 할 수 있고 패키지 다루는 툴   
-   ② curl : curl [options] [URL...]의 형식, 원격 호스트에서 또는 원격 호스트로 데이터를 전송할 수 있는 명령줄 도구 문제 해결, 파일 다운로드 등에 유용   
