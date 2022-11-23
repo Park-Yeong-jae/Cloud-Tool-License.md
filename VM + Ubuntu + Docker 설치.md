@@ -55,27 +55,27 @@
 
 ## 오류 및 해결방안
 
-## 1. GPG 등록 후 apt 사용 시 문제발생
-( invalid value set for option signed-by regarding source ~ )
- * 해당위치에 있는 docker.list 파일 삭제
-  ① cd /etc/apt/sources.list.d
-  ② sudo rm -rf docker.list
-  ③ 삭제하니 , docker 설치가 안됨.
-  ④ 결국 아래 방법에 따라 우분투 재설치로 해결.
-   https://shanepark.tistory.com/237 이 방법대로 재설치, 해결
+## 1. GPG 등록 후 apt 사용 시 문제발생   
+( invalid value set for option signed-by regarding source ~ )   
+ * 해당위치에 있는 docker.list 파일 삭제   
+  ① cd /etc/apt/sources.list.d   
+  ② sudo rm -rf docker.list   
+  ③ 삭제하니 , docker 설치가 안됨.   
+  ④ 결국 아래 방법에 따라 우분투 재설치로 해결.   
+   https://shanepark.tistory.com/237 이 방법대로 재설치, 해결   
    
- ## 2. apt --fix-broken install 오류
-  * 의존성이 맞지않는 경우
-   ①. 컨테이너 의존성을 설치한다
-    * apt install containerd
-   ② 의존성 패키지 자동설치
-    * sudo apt-get -f install -f
+ ## 2. apt --fix-broken install 오류   
+  * 의존성이 맞지않는 경우   
+   ①. 컨테이너 의존성을 설치한다   
+    * apt install containerd   
+   ② 의존성 패키지 자동설치   
+    * sudo apt-get -f install -f   
     
-  ## 3. Docker 권한주는게 안될 경우
-   * 최초 접속 후 sudo su
-   * 비밀번호 입력
-   * cd ~
-   * 순서로 명령어를 입력하여 root 계정으로 접근
+  ## 3. Docker 권한주는게 안될 경우   
+   * 최초 접속 후 sudo su   
+   * 비밀번호 입력   
+   * cd ~   
+   * 순서로 명령어를 입력하여 root 계정으로 접근   
 
 <hr>  
 
