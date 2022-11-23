@@ -65,6 +65,8 @@
 # 클러스터 실행
   ## 1. 마스터노드 Kubeadm init (마스터)
     * sudo kubeadm reset (처음 설치하면 생략)
+      * reset 시, unset KUBECONFIG 선행
+      * reset 시,export KUBECONFIG=/etc/kubernetes/admin.conf 선행
     * sudo kubeadm init --apiserver-advertise-address [마스터 IP] --pod-network-cidr=192.168.1.0/24
       * 워크노드가 붙을 마스터 IP와 Pod의 내부 네트워크 지정
       *** 오류 1) master 노드는 Core가 최소 2개 이상 필요한데 1개로 설정했을 시
@@ -87,7 +89,9 @@
     * kubectl get nodes 로 확인
     
   ## 3. 마스터 노드 init 시 생성된 토큰값으로 Join (워커)
-    (재차 마스터 init 시엔 토큰이 재발급되니 sudo kubeadm reset을 하고 진행)
+    * 마스터노드에서 init 시, 토큰이 재발급되니 sudo kubeadm reset을 하고 진행
+      * reset 시, unset KUBECONFIG 선행
+      * reset 시,export KUBECONFIG=/etc/kubernetes/admin.conf 선행
     * kubeadm join ~~ 으로 시작하는 토큰 값 전부 복붙하여 join
       * 오류 : error execution phase preflight: [preflight] Some fatal errors occurred:
                 * 기본 Docker 구성은 CLI를 제거함
