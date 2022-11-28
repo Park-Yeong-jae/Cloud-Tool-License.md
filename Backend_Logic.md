@@ -5,6 +5,7 @@
         전화기 기반 시설은 이미 세계 어느곳과도 연결되어있고 완벽한 배선이기 때문에 네트워크와 연결을 위해선 모뎀이라는 장비를 사용하여 네트워크 정보를 전화 시설에서 처리할 수 있게 한다.   
     C.	다음으로는 네트워크에서 네트워크로 메시지를 보내기위해서 Internet Service Provider(ISP)에 연결한다. ISP에서 모두 함께 연결되는 특수 라우터를 관리하고 다른 ISP의 라우터에 액세스할 수 있는 회사임. (KT, SK브로드밴드, LGU+ 등)   
     D.	이후 특정 컴퓨터에 메시지를 보내려면 특정된 주소가 있어야하는데 이를 IP주소라고 한다. 그리고 IP주소는 기억하기 어려우므로 이를 도메인으로 지정할 수 있다.    (google.com = 173.194.121.32이다)
+    
   ### 2)	HTTP는 무엇일까요   
     A.	Hyper Text Transfer Protocol로 인터넷에서 데이터를 주고받을 수 있는 프로토콜. (프로토콜은 규칙이라고 생각하면 됨)   
     B.	클라이언트(서버에 요청을 보내는 리소스 사용자)가 브라우저를 통해서 어떠한 서비스를 URI를 통해서 요청(Request)하면 서버(클라이언트에게 요청에 대한 응답을 제공하는 리소스 관리자)에서는 해당 요청에 대한 결과를 응답(Response)하는 형태로 동작한다.   
@@ -20,15 +21,14 @@
     I.	OPTIONS : 클라이언트가 서버의 리소스에 대해 수행 가능한 동작 알아보기 위해   
         일반적으로 서버는 리소스에 대해 사용할 수 있는 HTTP 요청 메서드를 포함하는 Allow 헤더를 반환한다 (CORS에 사용)   
     J.	요청   
-       ![image](https://user-images.githubusercontent.com/96723249/204169409-a316b996-3798-4f43-939b-8707e3145516.png)   
-
+    https://user-images.githubusercontent.com/96723249/204174479-444bec8c-8d99-45b3-886b-bfaf5508e3ac.png
     K.	응답   
-       ![image](https://user-images.githubusercontent.com/96723249/204169413-a6aa39d0-18dd-40e4-9e05-2f08f415e145.png)   
+    https://user-images.githubusercontent.com/96723249/204174486-556fc08e-73ee-4e7c-96d4-d9ba8b80c1e8.png
 
   ### 3)	브라우저의 동작원리   
     A.	브라우저의 주요기능 : 사용자가 선택한 자원을 서버에 요청하고 브라우저에 표시하는 것.   
     B.	구조   
-      ![image](https://user-images.githubusercontent.com/96723249/204169419-26614824-2c0e-4c40-b87e-ec21ccf0edee.png)   
+    https://user-images.githubusercontent.com/96723249/204174072-9765b0fa-3a33-4cb6-bac2-31275419d653.png
 
     C.	각 구성요소의 역할   
       -	사용자 인터페이스: 주소 표시줄, 이전/다음 버튼 등 페이지 뷰 이외의 다른 부분   
@@ -43,10 +43,10 @@
       동작과정 : DOM , CSSOM 트리구축> 렌더트리 구축> 렌더트리 배치> 렌더트리 그리기   
       (Document Object Model , CSS Object Model) HTML파싱하여 DOM노드 만들고 DOM 노드들을 병합하여 DOM 트리를 만든다 CSSOM 트리도 동일.   
     E.	HTML파싱와 DOM 생성 예시   
-      ![image](https://user-images.githubusercontent.com/96723249/204169468-a0b9da17-9791-4060-83af-4221ee5eda95.png)   
+      https://user-images.githubusercontent.com/96723249/204169468-a0b9da17-9791-4060-83af-4221ee5eda95.png 
 
     F.	트리 구축   
-       ![image](https://user-images.githubusercontent.com/96723249/204169472-323dfdde-ffff-4c10-9913-3e99b56bd201.png)   
+       https://user-images.githubusercontent.com/96723249/204169472-323dfdde-ffff-4c10-9913-3e99b56bd201.png
 
   ### 4)	DNS와 작동원리   
     A.	DNS란 : 도메인 주소를 숫자인 IP 주소로 변환하는 과정이 필요한데 이를 담당한 시스템   
@@ -55,7 +55,7 @@
       -	도메인 네임 스페이스 : 최상위에 루트 DNS가 존재하고 그 하위로 인터넷에 연결된 모든 노드가 연속해서 이어진 계층구조로 구성   
       -	네임 서버 : 주소를 변환 시키기 위해 도메인 네임 스페이스의 트리구조에 대한 정보가 필요한데 이 정보를 가진 도메인 이름을 IP주소로 변환하는 것을 네임 서비스   
       -	리졸버 : DNS 클라이언트 요청을 네임 서버로 전달하고 네임 서버로부터 도메인 이름과 IP주소 정보를 받아 클라이언트에게 제공하는 기능을 수행   
-                ![image](https://user-images.githubusercontent.com/96723249/204169482-67eeef25-f915-43dc-baef-24f2ec23a683.png)   
+                https://user-images.githubusercontent.com/96723249/204169482-67eeef25-f915-43dc-baef-24f2ec23a683.png  
 
     D.	DNS 동작과정   
       * DNS Query (Web Browser ▶ Local DNS) : 제가 원하는 웹 사이트의 IP 주소를 알고 계신가요? Local DNS 서버에게 전달   
@@ -122,7 +122,7 @@
       	세그먼테이션 : 가상메모리 활용. 외부단편화는 존재하는 단점(프로세스가 적재, 삭제가 반복되면 많은 공간들이 작은 조각들로 쪼개져 사용이 안됨)   
       	메모리 풀 : 필요한 크기만큼 사용자가 직접 할당하여 필요할 때마다 사용, 반납   
   ### 7)	프로세스간 통신 (IPC)   
-     ![image](https://user-images.githubusercontent.com/96723249/204169494-7741bfff-db0c-41c0-93ef-727fd92fc80b.png)   
+     https://user-images.githubusercontent.com/96723249/204169494-7741bfff-db0c-41c0-93ef-727fd92fc80b.png
 
   ### 8)	입출력 관리   
     A.	컴퓨터와 하드웨어 장치 사이의 공통된 인터페이스 역할을 수행하는 것이 입출력 관리의 핵심이다.   
@@ -134,7 +134,7 @@
     A.	POSIX는 이식 가능 운영 체제 인터페이스의 약자, 서로 다른 UNIX OS의 공통 API를 정리하여 이식성이 높은 유닉스 응용 프로그램을 개발하기 위한 목적으로 IEEE가 책정한 애플리케이션 인터페이스 규격.   
   ### 10)	기본적인 네트워크 개념   
     A.	몇 개의 독립적인 장치가 적절한 영역내에서 적당히 빠른 속도의 물리적 통신 채널을 통하여 서로가 직접 통신할 수 있도록 지원해 주는 데이타 통신 체계   
-     ![image](https://user-images.githubusercontent.com/96723249/204169516-280c74df-3137-4b89-a88a-5e61bb136e68.png)   
+     https://user-images.githubusercontent.com/96723249/204169516-280c74df-3137-4b89-a88a-5e61bb136e68.png   
 <hr>
 
 ## 4.	언어배우기
