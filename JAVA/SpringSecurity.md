@@ -73,7 +73,7 @@
       * 다른 요청은 Spring Security에 의해서 차단이되고, AuthFailEntryPoint로 던질거임.
       
     * JWT 로그인의 이해
-      ![image](https://user-images.githubusercontent.com/96723249/207778733-6c8893da-4676-4155-b069-c725948e1125.png)
+    ![image](https://user-images.githubusercontent.com/96723249/207778733-6c8893da-4676-4155-b069-c725948e1125.png)
 
 
   3) AuthFailEntryPoint.class
