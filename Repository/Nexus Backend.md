@@ -49,7 +49,7 @@
       remote storage는 plugin 용 이기 때문에 주소가 달라진다. (https://plugins.gradle.org/m2/)
       
     3) distribution 용 repository 생성
-      Recipe : row (hosted) 선택
+      Recipe : raw (hosted) 선택
       Name : repository 이름 설정 (distribution_row) 
       deployment policy : Allow redeploy
       
