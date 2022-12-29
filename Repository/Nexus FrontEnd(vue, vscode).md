@@ -88,7 +88,7 @@
 
 이상태로 npm install 하면 되는데 안될때가 많으니
 
-npm install --force
-npm install --legacy-peer-deps 명령어를 통하여 npm install 을 해주면 된다.
+1. npm install --force
+2. npm install --legacy-peer-deps 명령어를 통하여 npm install 을 해주면 된다.
 그래도 오류가 발생하면 packages.json 에서 오류나는 dependency를 찾아 nexus와 비교하여 존재하는 버전으로 명시후 다시 install을 해주면 된다
 
