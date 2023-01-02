@@ -11,8 +11,8 @@
 ### 2. 프로젝트의 루트 경로에 .yarnrc 파일 생성후 아래 내용을 넣어준다.
   * .yarnrc 파일생성
   * .yarnrc 내용 입력   
-     yarn-offline-mirror "./npm_packages"    // 패키지 명은 하고싶은대로    
-     yarn-offline-mirror-pruning true   
+     yarn-offline-mirror "./npm_packages"  // 패키지명은 하고싶은대로
+     yarn-offline-mirror-pruning true
      
 ### 3. yarn 캐시 삭제
   * 설치가 되어있지 않을 경우 설치를 해준 후 캐시 삭제. 후 다시 생성   
@@ -31,6 +31,7 @@
   * 해당 파일들이 패키지가 되는 것이고 해당 패키지로 모듈을 만드는것이다.
   * 그래서 지금 뽑아낸 파일들을 폐쇄망 환경의 nexus에 올려야 한다.
   * 폐쇄망에 node.js 설치파일도 함께 반입해야 한다.
+    ( 폐쇄망에서 installer가 다운로드 안되기 때문에)
   * 폐쇄망에서 yarn으로 환경구성을 하려면 yarn.js 파일을 받아서 반입을 하면 된다.
 
 ### 4. 여기까지가 온라인 환경에서의 준비과정.
@@ -46,9 +47,10 @@
   * 하단 save 클릭
   * 여기까지가 nexus 설정 완료
 
-### 2. node.js 설치 파일을 실행하여 node.js 설치
+### 2. 반입신청해서 반입한 node.js 설치 파일을 실행하여 node.js 설치
 
 ### 3. npm설정 (git bash)
+![image](https://user-images.githubusercontent.com/96723249/210190581-408aa736-27b8-4051-91bc-aa76e159aa71.png)
   * 가장먼저 auth 토큰키를 발급 받아야 한다.
     $ echo -n admin:1234 | openssl base64
     // 해당 명령어는 단순히 'admin:1234' 를 base64로 인코딩 한것이다.
@@ -82,10 +84,14 @@
     }
     
 ### 7. .sh 스크립트를 실행시킨다
+ * git bash 터미널에서 아래 스크립트 실행문을 입력한다
+ * ./npmImport.sh
 
-### 8. userID / userPW / Email 입력을 하라고 하면 그냥 하면된다.
-
-
+### 8. userID / userPW / Email 입력을 하라고 하면 Nexus의 아이디 비밀번호를 입력하고, 이메일은 형식에만 맞게 입력(gg@gg.gg)
+ * 위 작업은 10~20분까지도 걸리며, 혹시 중간에 오류가 나온다면 C드라이브 > 사용자 > 사용자 > .npmrc 파일을 재작성해보고 실행해본다.
+ * 그래도 안될 경우, Nexus Repository를 만들때 deployment policy를 Allow Redeploy로 설정했는지 확인
+ 
+ 
 이상태로 npm install 하면 되는데 안될때가 많으니
 
 1. npm install --force
