@@ -105,15 +105,20 @@
 
 
 <hr>
-
-
-
-
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
 
 
 
 ## 참고문헌
 https://crispyblog.kr/development/common/10   
-https://sinawi.tistory.com/370
 
+Docker 설치 및 Jenkins와 gitlab 연결, 설정
+https://sinawi.tistory.com/370
 
