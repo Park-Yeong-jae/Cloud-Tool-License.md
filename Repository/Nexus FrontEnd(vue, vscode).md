@@ -8,25 +8,26 @@
   * 어찌됐던 node_modules 은 있을것이다.
   * 다 지워주자
 
-### 2. 프로젝트의 루트 경로에 .yarnrc 파일 생성후 아래 내용을 넣어준다.
+### 2. 프로젝트의 루트 경로에 .yarnrc 파일 생성후 아래 내용을 넣어준다. (재테스트 시, C: > 사용자 > .yarnrc 파일 지우고 해야됨)
   * .yarnrc 파일생성
   * .yarnrc 내용 입력   
      yarn-offline-mirror "./npm_packages"  // 패키지명은 하고싶은대로   
      yarn-offline-mirror-pruning true
      
 ### 3. yarn 캐시 삭제
-  * 설치가 되어있지 않을 경우 설치를 해준 후 캐시 삭제. 후 다시 생성   
-    // 아래 명령어를 통해 yarn의 설치 유무 확인
-    $ yarn --version
+  * 설치가 되어있지 않을 경우 설치를 해준 후 캐시 삭제. 후 다시 생성      
+    // 아래 명령어를 통해 yarn의 설치 유무 확인   
+    $ yarn --version   
 
-    // yarn이 설치되어있지 않은 경우 설치
-    $ npm install -g yarn
+    // yarn이 설치되어있지 않은 경우 설치   
+    $ npm install -g yarn   
 
-    // yarn 캐시 삭제
-    $ yarn cache clean
+    // yarn 캐시 삭제   
+    $ yarn cache clean   
 
-    // npm_package 를 파일로 받기위한 yarn install
-    $ yarn install
+    // npm_package 를 파일로 받기위한 yarn install   
+    $ yarn install   
+    
   * 여기까지 진행을 하게 되면 프로젝트의 루트 경로에 npm_packages 디렉토리에 *.tgz 파일들이 생성된다
   * 해당 파일들이 패키지가 되는 것이고 해당 패키지로 모듈을 만드는것이다.
   * 그래서 지금 뽑아낸 파일들을 폐쇄망 환경의 nexus에 올려야 한다.
