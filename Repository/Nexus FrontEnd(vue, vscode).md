@@ -11,7 +11,7 @@
 ### 2. 프로젝트의 루트 경로에 .yarnrc 파일 생성후 아래 내용을 넣어준다.
   * .yarnrc 파일생성
   * .yarnrc 내용 입력   
-     yarn-offline-mirror "./npm_packages"  // 패키지명은 하고싶은대로
+     yarn-offline-mirror "./npm_packages"  // 패키지명은 하고싶은대로   
      yarn-offline-mirror-pruning true
      
 ### 3. yarn 캐시 삭제
