@@ -49,6 +49,7 @@
 
 ## docker 설치 확인
   * docker -v
+  * Docker daemon running? 이 뜰텐데 이 땐 $sudo service docker start로 도커를 실행하면 된다.
   
 ## ▼ 참고문헌 Ubuntu 내에서 docker 설치 (docker desktop X)
   * https://hahahoho5915.tistory.com/48
