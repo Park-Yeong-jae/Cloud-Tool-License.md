@@ -117,8 +117,8 @@
 
 
 ## 참고문헌
-https://crispyblog.kr/development/common/10   
+  * https://crispyblog.kr/development/common/10   
 
 Docker 설치 및 Jenkins와 gitlab 연결, 설정
-https://sinawi.tistory.com/370
+  * https://sinawi.tistory.com/370
 
