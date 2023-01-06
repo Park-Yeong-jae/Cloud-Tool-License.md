@@ -21,7 +21,7 @@
     * sudo vi /etc/fstab 에서 swap 부분 주석처리 (영구적 스왑메모리 해제)
     
   ## 3. Docker install
-    * [https://github.com/Park-Yeong-jae/Cloud-Tool-License.md/blob/main/VM%20%2B%20Ubuntu%20%2B%20Docker%20%EC%84%A4%EC%B9%98.md](https://github.com/Park-Yeong-jae/Study_Cloud.md/blob/main/VM/Ubuntu/in%20Windows/Docker%20install.md)
+    * 상위 폴더의 install 
     
   ## 4. 노드간 통신을 위한 브릿지 설정 (마스터/워커)
     * cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
