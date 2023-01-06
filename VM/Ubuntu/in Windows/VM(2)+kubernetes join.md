@@ -68,6 +68,7 @@
       * reset 시, unset KUBECONFIG 선행
       * reset 시,export KUBECONFIG=/etc/kubernetes/admin.conf 선행
     * sudo kubeadm init --apiserver-advertise-address [마스터 IP] --pod-network-cidr=192.168.0.0/16
+      * 마스터 IP는 ifconfig를 했을 때 ens4의 inet 주소이다
       * 워크노드가 붙을 마스터 IP와 Pod의 내부 네트워크 지정
         * pod-network 
           calico기반 : pod-network-cidr=192.168.0.0/16
