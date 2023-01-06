@@ -122,3 +122,5 @@
 Docker 설치 및 Jenkins와 gitlab 연결, 설정
   * https://sinawi.tistory.com/370
 
+연결된 GitLab - Jenkins 자동배포
+  * https://velog.io/@dgh03207/Jenkins-Docker-gitLab-Webhook%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC
