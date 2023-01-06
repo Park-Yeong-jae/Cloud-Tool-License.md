@@ -105,7 +105,7 @@
     * join 재시도
     * Master Node 에서 kubectl get nodes로 Join 확인
     
-  ## 4. Pod 네트워크 애드온 설치 (마스터) - kubectl get nodes 시 <Not Ready> 해결
+  ## 4. Pod 네트워크 애드온 설치 (마스터) - kubectl get nodes 시 Not Ready 해결
     ( Calico, flannel, weave net 등 많은 종류가 있는데 여기서는 calico 설치 (weave net이 안됨))
     * wget https://docs.projectcalico.org/manifests/calico.yaml (calico 설정파일 내려받기)
     * sed -i -e 's?192.168.0.0/16?192.168.1.0/24?g' calico.yaml (기본값 192.168.0.0/16 에서 우리가 설정한걸로 변경)
