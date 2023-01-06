@@ -18,7 +18,7 @@
   ## 2. 스왑메모리 해제 (마스터/워커)
     * 메모리 스왑이 활성화 되어 있으면 컨테이너의 성능이 일관되지 않을 수 있어서 대부분의 쿠버네티스 설치 도구(kubeadm 포함)는 메모리 스왑을 허용하지 않음.
     * sudo swapoff -a
-    * sudo vi /etc/fstab 에서 swap 부분 주석처리 (영구적 스왑메모리 해제)
+    * sed -i '/swap.img/s/^/#/' /etc/fstab (영구적 스왑메모리 해제)
     
   ## 3. Docker install
     * 상위 폴더의 install 
