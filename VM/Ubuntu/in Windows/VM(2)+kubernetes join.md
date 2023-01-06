@@ -25,24 +25,24 @@
     
   ## 4. 노드간 통신을 위한 브릿지 설정 (마스터/워커)
     * cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
-      br_netfilter
-      EOF
+    br_netfilter
+    EOF
     * cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
-      net.bridge.bridge-nf-call-ip6tables = 1
-      net.bridge.bridge-nf-call-iptables = 1
-      EOF
+    net.bridge.bridge-nf-call-ip6tables = 1
+    net.bridge.bridge-nf-call-iptables = 1
+    EOF
     
   ## 5. Docker Daemon systemd 와 cgroup을 systemd로 맞춰주어야 함 (마스터/워커)
     * cat <<EOF | sudo tee /etc/docker/daemon.json
-      {
-        "exec-opts": ["native.cgroupdriver=systemd"],
-        "log-driver": "json-file",
-        "log-opts": {
-          "max-size": "100m"
-        },
-        "storage-driver": "overlay2"
-      }
-      EOF
+    {
+      "exec-opts": ["native.cgroupdriver=systemd"],
+      "log-driver": "json-file",
+      "log-opts": {
+        "max-size": "100m"
+      },
+      "storage-driver": "overlay2"
+    }
+    EOF
     * sudo systemctl enable docker
     * sudo systemctl daemon-reload
     * sudo systemctl restart docker
