@@ -67,8 +67,12 @@
     * sudo kubeadm reset (처음 설치하면 생략)
       * reset 시, unset KUBECONFIG 선행
       * reset 시,export KUBECONFIG=/etc/kubernetes/admin.conf 선행
-    * sudo kubeadm init --apiserver-advertise-address [마스터 IP] --pod-network-cidr=192.168.1.0/24
+    * sudo kubeadm init --apiserver-advertise-address [마스터 IP] --pod-network-cidr=192.168.0.0/16
       * 워크노드가 붙을 마스터 IP와 Pod의 내부 네트워크 지정
+        * pod-network 
+          calico기반 : pod-network-cidr=192.168.0.0/16
+          Flannel기반 : pod-network-cidr=10.244.0.0/16
+          Cilium 기반 : pod-network-cidr=192.167.0.0/16
       *** 오류 1) master 노드는 Core가 최소 2개 이상 필요한데 1개로 설정했을 시
                 * Setting 들어가서 Core 갯수 수정
                2) Core를 재설정 할 경우 메모리스왑 해제가 풀릴 수 있음
