@@ -46,7 +46,7 @@
           Azure 리소스 모니터링 및 유지관리 : 	10~15%   
           *** 수시로 변경이 되니 확인필요 https://learn.microsoft.com/ko-kr/certifications/exams/az-104
 
-  ㅁ) AZ-204 : Azure Developer Associate    
+  ㅁ) AZ-204 : Azure Developer Associate (Clear)   
     (클라우드 솔루션 설계, 구축, 배포 및 유지 관리와 같은 다양한 개발 단계에 관련된 클라우드 개발자에게 이상적인 자격증)   
         ![image](https://user-images.githubusercontent.com/96723249/200976895-a7a67c6c-8978-40e8-a1c3-39c5027b6f84.png)   
         - 전제조건   
