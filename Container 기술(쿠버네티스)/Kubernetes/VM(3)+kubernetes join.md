@@ -86,6 +86,7 @@
       * kubeadm join [마스터 IP]:~ --token 로 시작하는 라인 전부
       
   ## 2. kubectl 명령어 수행을 위한 명령어 (마스터)
+    * kubectl을 이용하기 위해서는 쿠버네티스 클러스터의 인증서를 가지고 있어야함. 이걸 복사해서 kubectl을 사용할 수 있도록 해주는 작업.
     * (재설치 시 선행작업 : unset KUBECONFIG)
     * (재설치 시 선행작업 : export KUBECONFIG=/etc/kubernetes/admin.conf)
     * mkdir -p $HOME/.kube
@@ -115,6 +116,25 @@
 Ready 의 값을 보면 1/1을 제대로 만족하는지 확인하면 된다.))
     * 제대로 나오지 않을 땐 apt update 하고 재시도
     
+<hr>
+<hr>
+  ## 오류 : kubectl get nodes 했는데, The connection to the server (host IP):6443 was refused 오류가 나올 수 있음
+    * 6443 port는 보안포트로서 각 노드들에게 SSH 연결을하여 통신을 해야한다.
+      * 되다 안되다 하는데 오류의 이유를 찾아보니 아래 의견이 많았다.
+      * swapoff -a (위에 했었기 때문에 해결되지않음)
+      * 2번내용 mkdir -p $HOME/.kube ~~ (위에서 했었기 때문에 해결되지않음)
+      * 디스크 공간문제 (아직 안해봄)
+      * 보안포트이기 때문에 노드간 SSH 연결
+     
+    * 디스크 공간문제
+      * 노드가 많아지게되면 kubectl 사용할 때 timeout이 발생하고 이 때 etcd를 설치 및 동작시킨다 (현재 노드가 2개밖에 없어서 해결방법 아닐듯)
+    
+    * 노드간 SSH 연결
+      * 
+    
+    
+  
+  
 <hr>
 <hr>
 
