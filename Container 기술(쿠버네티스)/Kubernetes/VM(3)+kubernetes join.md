@@ -118,6 +118,7 @@ Ready 의 값을 보면 1/1을 제대로 만족하는지 확인하면 된다.))
     
 <hr>
 <hr>
+
   ## 오류 : kubectl get nodes 했는데, The connection to the server (host IP):6443 was refused 오류가 나올 수 있음
     * 6443 port는 보안포트로서 각 노드들에게 SSH 연결을하여 통신을 해야한다.
       * 되다 안되다 하는데 오류의 이유를 찾아보니 아래 의견이 많았다.
