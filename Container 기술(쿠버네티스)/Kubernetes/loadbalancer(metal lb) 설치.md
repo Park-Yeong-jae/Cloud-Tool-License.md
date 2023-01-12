@@ -47,7 +47,7 @@
  * 그리고 아래와 같이 실제로 MetalLB가 할당해준 EXTERNAL-IP 주소를 통해 Networking이 되는지 확인한다.
 
 ## 6. MetalLB가 할당해준 IP주소 Networking 확인
- $ curl <EXTERNAL-IP>
+ $ curl ( EXTERNAL-IP )
   
 
 ## 참고문헌
