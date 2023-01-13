@@ -16,10 +16,14 @@
       * sudo systemctl restart ntp (재시작)
       * sudo ntpq -p (NTP 클라이언트가 NTP 서버에 동기화 됨을 확인)
       
-  ## 2. 스왑메모리 해제 (마스터/워커)
+  ## 2. 스왑메모리 해제 및 CRI  (마스터/워커)
     * 메모리 스왑이 활성화 되어 있으면 컨테이너의 성능이 일관되지 않을 수 있어서 대부분의 쿠버네티스 설치 도구(kubeadm 포함)는 메모리 스왑을 허용하지 않음.
     * sudo swapoff -a
     * sed -i '/swap.img/s/^/#/' /etc/fstab (영구적 스왑메모리 해제)
+    
+    * CRI 설치 (컨테이너 런타임 인터페이스 : containerd)
+    * sudo apt-get update
+    * sudo apt-get install containerd
     
   ## 3. Docker install
     * 상위 폴더의 install 
