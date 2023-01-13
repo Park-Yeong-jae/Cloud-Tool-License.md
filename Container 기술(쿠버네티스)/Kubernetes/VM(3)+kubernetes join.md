@@ -109,7 +109,8 @@
   ## 4. Pod 네트워크 애드온(CNI: container network interface) 설치 (마스터) - kubectl get nodes 시 Not Ready 해결
     ( Calico, flannel, weave net 등 많은 종류가 있는데 여기서는 calico 설치 (weave net이 안됨))
     * wget https://docs.projectcalico.org/manifests/calico.yaml (calico 설정파일 내려받기)
-    // 생략 * sed -i -e 's?192.168.0.0/16?192.168.1.0/24?g' calico.yaml (기본값 192.168.0.0/16 에서 우리가 설정한걸로 변경)
+    // 생략 sed -i -e 's?192.168.0.0/16?192.168.1.0/24?g' calico.yaml (기본값 192.168.0.0/16 에서 우리가 설정한걸로 변경)
+    // 지금은 따로 우리가 설정한게 없고 init 할 때 cidr이 calico 기반인 192.168.0.0/16 이므로 이를 따른다 
     * kubectl apply -f calico.yaml (구축된 클러스터에 실시간 반영)
     * kubectl get pods --namespace kube-system (네트워크 생성 및 적용 확인)
       * ((출력 결과에 calico-로 시작하는 노드들의 상태를 보며 Init 단계를 지나 PodInitializing 혹은 ContainerCreating을 거쳐 최종적으로 Running까지 확인.
