@@ -143,7 +143,31 @@ Ready 의 값을 보면 1/1을 제대로 만족하는지 확인하면 된다.))
   
   
 <hr>
+
+# 참고!
+## 마스터 노드에서는 6443, 2379~2380, 10250, 10251, 10252 포트가 사용되고 있지 않아야 한다.
+
+[마스터 노드에서 필요한 필수 포트]
+6443 포트 : Kubernetes API Server / Used By All
+2379~2380 포트 : etcd server client API / Used By kube-apiserver, etcd
+10250 포트 : Kubelet API / Used By Self, Control plane
+10251 포트 : kube-scheduler / Used By Self
+10252 포트 : kube-controller-manager / Used By Self
+
+## 워커 노드에서는 10250, 30000~32767 포트가 사용되고 있지 않아야 한다.
+[워커 노드에서 필요한 필수 포트]
+10250 포트 : Kubelet API / Used By Self, Control plane
+30000~32767 포트 : NodePort Services / Used By All
+
+위 포트가 사용중이라면서 에러가 발생하는 경우 마스터 컨트롤 플레인 노드에서 다음과 같이 리셋해준다.
+ $ kubeadm reset cleanup-node
+
 <hr>
 
 # Cluster 아키텍처
 ![image](https://user-images.githubusercontent.com/96723249/202334290-226e2f6b-783e-4c02-babb-a905dabecf52.png)
+
+<hr>
+
+# 참고문헌
+https://bxmsta9ram.tistory.com/124
