@@ -136,9 +136,7 @@ Ready 의 값을 보면 1/1을 제대로 만족하는지 확인하면 된다.))
     * 디스크 공간문제
       * 노드가 많아지게되면 kubectl 사용할 때 timeout이 발생하고 이 때 etcd를 설치 및 동작시킨다 (현재 노드가 2개밖에 없어서 해결방법 아닐듯)
     
-    * 노드간 SSH 연결
-      * 
-    
+    * 이것저것 찾다가 삭제 후 재설치를 했는데, Kubernetes & Ubuntu & CRI & CNI & CRIO의 개념을 알게되고 Kubernetes 1.24 버전부터는 docker 지원을 하지않기 때문에 (docker engine만 지원) CRI-O 및 CRI인 conrainerd 를 사용해야한다고 함.
     
   
   
