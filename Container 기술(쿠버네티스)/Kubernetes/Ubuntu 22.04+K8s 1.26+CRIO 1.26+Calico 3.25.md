@@ -105,17 +105,6 @@ systemctl start kubelet && systemctl enable kubelet
 ## init
 kubeadm init --apiserver-advertise-address [마스터 IP] --pod-network-cidr=192.168.0.0/16 --cri-socket /var/run/crio/crio.sock
 
-## kubectl 사용을 위한 K8s 클러스터 인증서
-mkdir -p $HOME/.kube
-cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-chown $(id -u):$(id -g) $HOME/.kube/config
-
-## WOKER NODE 에서만 작업
-## join (init 할 때마다 바뀜)
-kubeadm join 10.178.0.6:6443 --token dihxy9.c593578l4vwjhl0c \
-        --discovery-token-ca-cert-hash sha256:9be572762cf1b6533090e53009c6569b1bacff4215eb5888a490b36b104572b0 --cri-socket /var/run/crio/crio.sock
-
-## MASTER 에서만 작업
 ## CNI 설치 (calico)
 ## Tigera calico 연산자 및 사용자 정의 자원 정의 설치
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
@@ -134,4 +123,17 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane- node-role.kuber
 ## Calicoctl 설치 (바이너리로 설치)
 curl -L https://github.com/projectcalico/calico/releases/download/v3.25.0/calicoctl-linux-amd64 -o calicoctl
 chmod +x calicoctl && mv calicoctl /usr/bin
+
+## kubectl 사용을 위한 K8s 클러스터 인증서 (root 계정에서 빠져나와서 진행)
+* ctrl + D = root 계정 로그아웃 진행
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+<hr>
+
+## WOKER NODE 에서만 작업
+## join (Join  (init 할 때마다 바뀜주의)
+kubeadm join **** --token *** \
+        --discovery-token-ca-cert-hash **** --cri-socket /var/run/crio/crio.sock
   
