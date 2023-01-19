@@ -34,6 +34,11 @@
 <hr>
 
 ## MASTER & WORKER 작업
+
+## 방화벽 설정
+systemctl stop ufw   
+systemctl disable ufw   
+
 ## root 계정으로 진행.
 sudo su 
 
