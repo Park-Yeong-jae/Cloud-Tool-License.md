@@ -101,6 +101,9 @@
     * sudo chown $(id -u):$(id -g) $HOME/.kube/config
     * kubectl get nodes 로 확인
     
+    * root 계정에서는
+    * export KUBECONFIG=/etc/kubernetes/admin.conf
+    
   ## 3. 마스터 노드 init 시 생성된 토큰값으로 Join (워커)
     * 마스터노드에서 init 시, 토큰이 재발급되니 sudo kubeadm reset을 하고 진행
       * reset 시, unset KUBECONFIG 선행
