@@ -37,48 +37,48 @@
 ## root 계정으로 진행.
 sudo su 
 
-## swap 영역 비활성화
-sed -i '/swap/d' /etc/fstab
-swapoff -a
+## swap 영역 비활성화 
+sed -i '/swap/d' /etc/fstab   
+swapoff -a   
 
 ## iptables 설정 (K8s는 iptables를 이용하여 pod 간 통신)
-cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
-overlay
-br_netfilter
-EOF
+cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf   
+overlay   
+br_netfilter   
+EOF   
 
-modprobe overlay
+modprobe overlay   
 modprobe br_netfilter
 
 ## 요구되는 sysctl 파라미터 설정
-cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
-net.bridge.bridge-nf-call-iptables  = 1
-net.ipv4.ip_forward                 = 1
-net.bridge.bridge-nf-call-ip6tables = 1
-EOF
+cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf   
+net.bridge.bridge-nf-call-iptables  = 1   
+net.ipv4.ip_forward                 = 1   
+net.bridge.bridge-nf-call-ip6tables = 1   
+EOF   
 
 ## 재부팅간에도 유지
 sysctl --system
 
 ## CRI-O 설치
-OS=xUbuntu_22.04
-VERSION=1.26
+OS=xUbuntu_22.04   
+VERSION=1.26   
 
-echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list   
 echo "deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.list
 
-curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:$VERSION/$OS/Release.key | apt-key add -
+curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:$VERSION/$OS/Release.key | apt-key add -   
 curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | apt-key add -
 
 apt-get update
 
 apt-get install -y cri-o cri-o-runc
 
-systemctl daemon-reload
-systemctl enable crio --now
-systemctl status crio
+systemctl daemon-reload   
+systemctl enable crio --now   
+systemctl status crio   
 
-apt install cri-tools
+apt install cri-tools   
 
 ## CRI-O 구축 끝
 
@@ -87,8 +87,8 @@ apt install cri-tools
 ## Kubernetes 구축 시작
 ## MASTER & WORKER 작업
 
-apt update
-apt-get install -y apt-transport-https ca-certificates curl
+apt update   
+apt-get install -y apt-transport-https ca-certificates curl   
 
 ## 구글 클라우드 public signing key 다운로드
 curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
@@ -96,10 +96,10 @@ curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.
 ## K8s apt repository 추가
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
-apt-get update
-apt-get install -y kubelet kubeadm kubectl
-apt-mark hold kubelet kubeadm kubectl
-systemctl start kubelet && systemctl enable kubelet
+apt-get update   
+apt-get install -y kubelet kubeadm kubectl   
+apt-mark hold kubelet kubeadm kubectl   
+systemctl start kubelet && systemctl enable kubelet   
 
 ## MASTER 에서만 작업
 ## init
@@ -121,14 +121,14 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane- node-role.kuber
 ## kubectl get all --all-namespaces 보면 coredns Status Running으로 변경됨을 확인.
 
 ## Calicoctl 설치 (바이너리로 설치)
-curl -L https://github.com/projectcalico/calico/releases/download/v3.25.0/calicoctl-linux-amd64 -o calicoctl
+curl -L https://github.com/projectcalico/calico/releases/download/v3.25.0/calicoctl-linux-amd64 -o calicoctl   
 chmod +x calicoctl && mv calicoctl /usr/bin
 
 ## kubectl 사용을 위한 K8s 클러스터 인증서 (root 계정에서 빠져나와서 진행)
-* ctrl + D = root 계정 로그아웃 진행
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+ * ctrl + D = root 계정 로그아웃 진행   
+mkdir -p $HOME/.kube   
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config   
+sudo chown $(id -u):$(id -g) $HOME/.kube/config   
 
 <hr>
 
