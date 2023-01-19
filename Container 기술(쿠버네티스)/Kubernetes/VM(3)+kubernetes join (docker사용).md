@@ -90,10 +90,12 @@
     * init 완료 후 토큰 값 저장
       * kubeadm join [마스터 IP]:~ --token 로 시작하는 라인 전부
       
-  ## 2. kubectl 명령어 수행을 위한 명령어 (마스터)
+  ## 2. root 계정 외의 계정에서 kubectl 명령어 수행을 위한 명령어 (마스터)
     * kubectl을 이용하기 위해서는 쿠버네티스 클러스터의 인증서를 가지고 있어야함. 이걸 복사해서 kubectl을 사용할 수 있도록 해주는 작업.
+    * root 계정에서 나와서 다른 계정에서 kubectl을 사용하기 위해서 하는 작업임
     * (재설치 시 선행작업 : unset KUBECONFIG)
     * (재설치 시 선행작업 : export KUBECONFIG=/etc/kubernetes/admin.conf)
+    * crtl + d 를 눌러서 root 계정에서 
     * mkdir -p $HOME/.kube
     * sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     * sudo chown $(id -u):$(id -g) $HOME/.kube/config
