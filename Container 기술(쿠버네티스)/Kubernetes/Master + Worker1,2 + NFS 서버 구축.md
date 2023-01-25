@@ -59,7 +59,7 @@
 ![image](https://user-images.githubusercontent.com/96723249/214499832-857f4cd5-dfe2-46f6-9797-b5e28734757c.png)
 
     * $ vi pod.yaml
-![image](https://user-images.githubusercontent.com/96723249/214499868-c427c6be-36f5-4f82-bb0e-df357fa9ef04.png)
+![image](https://user-images.githubusercontent.com/96723249/214511559-f658dab2-a346-41d1-af80-99906ec565af.png)
 
   * NFS 서버에서 /nfsdir에 아무 파일을 추가한 후 아래 명령 실행
     * $ kubectl exec -it mypod --bash
