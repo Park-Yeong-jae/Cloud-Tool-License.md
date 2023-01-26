@@ -135,10 +135,32 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config   
 sudo chown $(id -u):$(id -g) $HOME/.kube/config   
 
+## root 계정에서 사용을 하려면 export 하면됨 (root 계정에서 사용은 권장사항은 아님)
+ * export KUBECONFIG=/etc/kubernetes/admin.conf
+
 <hr>
 
 ## WOKER NODE 에서만 작업
 ## join (Join  (init 할 때마다 바뀜주의)
 kubeadm join **** --token *** \
         --discovery-token-ca-cert-hash **** --cri-socket /var/run/crio/crio.sock
-  
+
+
+<hr>
+
+## 오류정리
+
+ * Root 계정에서 나와서 x509: certificate signed by unknown authority 오류
+  * 인증서오류
+mkdir -p $HOME/.kube      
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config      
+sudo chown $(id -u):$(id -g) $HOME/.kube/config   
+ 
+ * root 계정에서 인증서 오류
+  * 인증서오류
+  * export KUBECONFIG=/etc/kubernetes/admin.conf
+
+
+ * The connection to the server localhost:8080 was refused - did you specify the right host or port?
+ * docker 와 CRIO 중복 오류
+ * kube init 시 뒤에 --cri-socket /var/run/crio/crio.sock 이걸 붙여줌으로써 socker 지정해줌
