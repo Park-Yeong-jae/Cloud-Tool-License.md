@@ -130,6 +130,7 @@ curl -L https://github.com/projectcalico/calico/releases/download/v3.25.0/calico
 chmod +x calicoctl && mv calicoctl /usr/bin
 
 ## kubectl 사용을 위한 K8s 클러스터 인증서 (root 계정에서 빠져나와서 진행)
+ * root유저가 사용하는 admin.conf 파일을 non-root user home 디렉토리로 이동시키는 명령어
  * ctrl + D = root 계정 로그아웃 진행   
 mkdir -p $HOME/.kube   
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config   
