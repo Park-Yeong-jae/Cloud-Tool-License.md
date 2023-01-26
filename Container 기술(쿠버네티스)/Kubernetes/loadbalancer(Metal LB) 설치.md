@@ -29,7 +29,13 @@
 ## 5. 오브젝트 확인
  * $ kubectl get all -n metallb-system
 
-
+## 6. Test (nginx deplot)
+ * kubectl create deploy nginx --image=nginx
+ * kubectl get pods -o wide (running 확인)
+ * kubectl expose deploy nginx --port 80 --type LoadBalancer
+ * kubectl get services
+ * nginx의 ETERNAL-IP로 접속하면 nginx 웹페이지가 뜬다.
+ * curl <EXTERNAL-IP:port>로 해도 nginx 가 나온다.
 
 
   
