@@ -1,0 +1,39 @@
+## Kubernetes LoadBalancer (metal lb)설치
+  * 쿠버네티스 클러스터에 존재하는 Pod 서비스를 외부로 노출시키기 위한 가장 원시적인 방법은 NodePort를 이용하는 것입니다. 하지만 NodePort는 인스턴스의 IP가 변경되면 해당 서비스에도 이를 반영해야합니다. 따라서 Cloud 벤더에서는 LoadBalancer나 Ingress 타입을 통해 서비스를 노출할 수 있도록 지원한다.
+
+<hr>
+
+## 1. strict ARP mode 활성화하기
+ * $ kubectl edit configmap -n kube-system kube-proxy
+ * ...
+ * apiVersion: kubeproxy.config.k8s.io/vialpha1   
+   kind: KubeProxyConfiguration   
+   mode: "ipvs"   
+   ipvs:   
+    strictARP:true //이 부분을 수정한다.   
+ * ...
+
+## 2. Metal LB 설치 (공식 홈페이지 설치가이드 (매니페스트에 의한 설치))
+  * Metal LB Components를 생성   
+    $ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.7/config/manifests/metallb-native.yaml
+
+## 3. 설치 후 확인
+ * $ kubectl get -n metallb-system pod   
+ * 잘 설치되었다면 아래와같이, metallb-conroller와 metallb-speaker pod가 Running 상태로 보인다. (25~30초정도 걸림)
+   
+![image](https://user-images.githubusercontent.com/96723249/211991226-73454cfe-e1d0-49cf-80cb-f068026c81c4.png)
+
+## 4.	라우팅 처리를 위한 ConfigMap 작성
+![image](https://user-images.githubusercontent.com/96723249/214771184-cb7dca7c-929d-4df3-9fe9-d1d295858be4.png)
+
+## 5. 오브젝트 확인
+ * $ kubectl get all -n metallb-system
+
+
+
+
+  
+
+## 참고문헌
+https://cla9.tistory.com/94   
+https://andrewpage.tistory.com/23
