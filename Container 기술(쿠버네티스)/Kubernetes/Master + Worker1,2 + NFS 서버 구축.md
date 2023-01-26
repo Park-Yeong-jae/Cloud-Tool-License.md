@@ -1,6 +1,9 @@
 ## Master + workder1 + worker2 구성은 상위 폴더에 정리되어있다.
   * 여기서는 NFS 서버 구축한다.
 
+![image](https://user-images.githubusercontent.com/96723249/214737282-bf6891cc-618e-4a68-ad33-1aa1933ee9e3.png)
+
+
 ## 1. NFS 서버 패키지 설치 (NFS 노드에서)
   * nfs-kernel-server 패키지를 설치하면 nfs 구축에 필요한 nfs-common 패키지, rpcbind 등을 포함하고 있어서 따로 설치할 필요가 없다.
     * $ sudo apt install nfs-kernel-server
