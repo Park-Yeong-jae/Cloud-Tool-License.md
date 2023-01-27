@@ -1,39 +1,54 @@
-## Master + workder1 + worker2 구성은 상위 폴더에 정리되어있다.
- * PV, PVC , nas storage를 구축하고 연결한다.
+##	K8s + nas storage 구축 아키텍처
+![image](https://user-images.githubusercontent.com/96723249/215043388-06b57fee-d3e0-4765-a47f-53ed05327986.png)
 
-![image](https://user-images.githubusercontent.com/96723249/214737282-bf6891cc-618e-4a68-ad33-1aa1933ee9e3.png)
+ 
+## 공유할 Nas storage를 NFS 서버로 설정 (NFS 서버에서 작업)
 
-## 
+ * NFS : Network File System : 파일 시스템을 컴퓨터끼리 공유할 수 있게 해주는 서비스.
+여러 대의 컴퓨터가 큰 용량의 하드디스크를 가진 NFS 서버로부터 서버의 하드웨어나 운영체제에 관계없이 파일 시스템을 가져다 마치 자신의 파일 시스템인 것 처럼 사용할 수 있게 해주는 것. 여기에서는 Data의 이중화를 위해 NFS 서버를 구축한다.
 
+ * NFS Package 설치   
+  $ sudo apt install nfs-kernel-server
+  
+ * 공유 디렉토리 생성   
+  $ sudo mkdir -p /k8s-data
+ * 디렉토리 권한 설정 (k8s-data 디렉토리에 모든 클라이언트 시스템이 쉽게 액세스 할 수 있도록)   
+  $ sudo chown -R nobody:nogroup /k8s-data
+  
+ * 파일 권한 설정   
+  $ sudo chmod 777 /k8s-data (필요에 따라 파일 권한을 설정할 수 있음 (777은 읽기 쓰기 실행권한으로 위 명령어로 모든 권한을 준다는 의미))
+  
+ * NFS 서버 공유 폴더의 host 허용 및 권한 설정   
+  $ sudo vi /etc/exports   
+  최하단에 공유할 클라이언트 정보를 추가한다. [공유할 경로][허용할IP/대역]/[서브넷](권한)   
+   /k8s-data 10.0.0.1(rw,sync,no_subtree_check) 10.0.0.2(rw,sync,no_subtree_check)   
+   
+![image](https://user-images.githubusercontent.com/96723249/215043494-d0e527a5-b846-4f70-9ee8-62b405fa0cf7.png)
 
+ * NFS 서버의 exports 변경내용 내보내기   
+  $ sudo exportfs -a
+  
+ * NFS 서버 다시 시작 및 자동실행   
+  $ sudo systemctl restart nfs-kernel-server   
+  $ sudo systemctl enable nfs-server   
 
+## Worker node에서 작업
+ * Ubuntu 22.04에 NFS 클라이언트 설치   
+  $ sudo apt install nfs-common
 
+ * 마운팅 포인트 디렉토리 생성   
+  $ sudo mkdir -p /k8s-data
 
+ * Fstab에 자동 마운트 등록 (재부팅 시 자동으로 마운트 됨)   
+  $ sudo vi /etc/fstab   
+  최하단에 추가 (공유파일 경로 유의)   
+  10.0.0.5:/k8s-data k8s-data/ nfs defaults 0 0   
 
+ * 마운트 (NFS 서버 IP , 서버 디렉토리 , Worker node 마운트 포인트 디렉토리)   
+  $ sudo mount -t nfs 10.0.0.5:k8s-data k8s-data/ 
 
+ * 마운트 확인   
+  $ df -h
 
-
-
-
-
-
-
-
-<hr>
-
-## 8. 쿠버네티스 명령어를 통해 NFS를 통한 볼륨 마운트 테스트 (Master node에서)
-  * nfs경로를 nginx파드 경로에 마운트됨을 확인하기
-  * master node 접속
-    * $ vi pv.yaml
-    
-![image](https://user-images.githubusercontent.com/96723249/214499674-37e5cfdf-279e-4f19-888f-0c4a54f4e9ed.png)
-
-    * $ vi pvc.yaml
-![image](https://user-images.githubusercontent.com/96723249/214499832-857f4cd5-dfe2-46f6-9797-b5e28734757c.png)
-
-    * $ vi pod.yaml
-![image](https://user-images.githubusercontent.com/96723249/214511559-f658dab2-a346-41d1-af80-99906ec565af.png)
-
-  * NFS 서버에서 /nfsdir에 아무 파일을 추가한 후 아래 명령 실행
-    * $ kubectl exec -it mypod --bash
-    * mypod내에 마운트한 경로인 /var/www/html 디렉토리를 확인해보면 추가된 것을 볼 수 있음
+## Mount 해제
+ * $ sudo umount -f /k8s-data
