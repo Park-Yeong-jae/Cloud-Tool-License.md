@@ -71,7 +71,8 @@ $ docker images 로 빌드된 이미지 확인
 
 $ docker run -d --name msa1 -p 9001:8080 (repository:TAG)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c9bac3b7-bbc9-4e70-8996-461b1e820329/Untitled.png)
+![image](https://user-images.githubusercontent.com/96723249/223962546-a2f7a2fa-0d85-4f6d-af5a-dfefe81eb331.png)
+
 
 - -d : 백그라운드에서 실행
 - -p : 호스트와 컨테이너같의 port 바인딩을 위한 옵션 (ex) -p (host port):(container port))
