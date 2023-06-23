@@ -1,5 +1,5 @@
 # 공홈 주소 (참고로 공식 홈페이지를 확인하는게 가장 좋다)
-https://kubernetes.io/ko/docs/setup/
+https://docs.docker.com/engine/install/ubuntu/#set-up-the-repository
 
 
 ## 1. Docker 오래된 버전 삭제하기 (첫 설치라면 skip)
