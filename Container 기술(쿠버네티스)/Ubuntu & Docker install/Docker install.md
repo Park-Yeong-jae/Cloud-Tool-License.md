@@ -91,6 +91,6 @@ https://docs.docker.com/engine/install/ubuntu/#set-up-the-repository
    
    > 사실상 쿠버네티스가 표준.
 
-   > 버전관리랑 크게 상관없을 경우, 이렇게 다운받을 수도 있다.
-      $ curl -fsSL https://get.docker.com -o get-docker.sh
-      $ sudo sh get-docker.sh
+   > 버전관리랑 크게 상관없을 경우, 이렇게 다운받을 수도 있다.   
+      $ curl -fsSL https://get.docker.com -o get-docker.sh   
+      $ sudo sh get-docker.sh   
