@@ -90,3 +90,7 @@ https://docs.docker.com/engine/install/ubuntu/#set-up-the-repository
    마찬가지로 yaml 파일에 정의된 내용을 바탕이지만, 클러스터 내에서가 아닌 Host 컴퓨터 내에 컨테이너를 만든다.
    
    > 사실상 쿠버네티스가 표준.
+
+   > 버전관리랑 크게 상관없을 경우, 이렇게 다운받을 수도 있다.
+      $ curl -fsSL https://get.docker.com -o get-docker.sh
+      $ sudo sh get-docker.sh
